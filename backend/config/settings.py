@@ -261,11 +261,21 @@ CORS_ALLOWED_ORIGINS = env_list(
 )
 CORS_ALLOW_CREDENTIALS = True
 
+# Allow this project's Vercel deployments (production alias + preview URLs)
+# to call the API from the browser. Scoped to this project's subdomain prefix
+# so it doesn't open the API to every *.vercel.app site.
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://product-customization-system.*\.vercel\.app$",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.vercel.app",
+]
+
 # In development, also allow the frontend served from any LAN IP (the
 # "Network" URL). Uses regexes so the specific origin is echoed back and
-# credentialed requests keep working. Not applied in production.
+# credentialed requests keep working.
 if DEBUG:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
+    CORS_ALLOWED_ORIGIN_REGEXES += [
         r"^http://localhost:\d+$",
         r"^http://127\.0\.0\.1:\d+$",
         r"^http://10\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+$",
@@ -273,7 +283,7 @@ if DEBUG:
         r"^http://172\.(1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}:\d+$",
     ]
     # Mirror trusted origins for CSRF (session-authenticated POSTs).
-    CSRF_TRUSTED_ORIGINS = [
+    CSRF_TRUSTED_ORIGINS += [
         "http://localhost:3000",
         "http://127.0.0.1:3000",
     ]
