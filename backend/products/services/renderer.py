@@ -4,17 +4,38 @@ Render service orchestrator.
 Bridges the Django models with the OpenCV rendering pipeline.
 Handles image loading, saving, and model status updates.
 """
-import os
 import time
 import logging
 import cv2
-from django.conf import settings
+import numpy as np
+from django.core.files.base import ContentFile
 
 from products.models import CustomizationJob, PrintArea, RenderJob
-from products.services.opencv_renderer import render_design_on_product
-from products.services.image_utils import generate_thumbnail
+from products.services.opencv_renderer import render_design_on_arrays
 
 logger = logging.getLogger(__name__)
+
+
+def _imread_field(field, flags):
+    """
+    Decode an ImageField's file into an OpenCV image array, reading through the
+    field's storage backend so it works with both the local filesystem and
+    remote storage (e.g. Cloudinary). Avoids relying on ``.path``, which remote
+    backends don't support.
+    """
+    with field.open("rb") as fh:
+        data = fh.read()
+    buf = np.frombuffer(data, dtype=np.uint8)
+    return cv2.imdecode(buf, flags)
+
+
+def _encode_png(image, high_quality=False):
+    """Encode a BGR(A) array to PNG bytes."""
+    params = [cv2.IMWRITE_PNG_COMPRESSION, 1] if high_quality else []
+    ok, buf = cv2.imencode(".png", image, params)
+    if not ok:
+        raise ValueError("Failed to encode rendered image to PNG")
+    return buf.tobytes()
 
 
 def _surface_for(product_view) -> str:
@@ -80,11 +101,15 @@ def _run_render(job_id: int, quality: str = "preview") -> CustomizationJob:
         # Get user design settings
         design_settings = job.design_settings or {}
 
+        # Load source images through their storage backend (local or remote)
+        product_img = _imread_field(product_view.image, cv2.IMREAD_COLOR)
+        design_img = _imread_field(design.image, cv2.IMREAD_UNCHANGED)
+
         # Run the rendering pipeline
         start_time = time.time()
-        result_image, timings = render_design_on_product(
-            product_image_path=product_view.image.path,
-            design_image_path=design.image.path,
+        result_image, timings = render_design_on_arrays(
+            product=product_img,
+            design=design_img,
             print_area=pa_dict,
             design_settings=design_settings,
             quality=quality,
@@ -92,26 +117,13 @@ def _run_render(job_id: int, quality: str = "preview") -> CustomizationJob:
         )
         total_time = time.time() - start_time
 
-        # Save output image
+        # Save output image through storage (uploads to Cloudinary in prod).
+        # The field's upload_to ("generated_previews/") supplies the folder.
         prefix = "preview" if quality == "preview" else "final"
         output_filename = f"{prefix}_{job.id}_{int(time.time())}.png"
-        output_dir = os.path.join(
-            settings.MEDIA_ROOT, "generated_previews"
-        )
-        os.makedirs(output_dir, exist_ok=True)
-        output_path = os.path.join(output_dir, output_filename)
+        png_bytes = _encode_png(result_image, high_quality=(quality == "final"))
 
-        # Use high quality for final, standard for preview
-        if quality == "final":
-            cv2.imwrite(
-                output_path, result_image,
-                [cv2.IMWRITE_PNG_COMPRESSION, 1]  # Low compression = high quality
-            )
-        else:
-            cv2.imwrite(output_path, result_image)
-
-        # Update job
-        job.output_image = f"generated_previews/{output_filename}"
+        job.output_image.save(output_filename, ContentFile(png_bytes), save=False)
         job.status = "completed"
         job.save(update_fields=["output_image", "status"])
 
@@ -171,10 +183,14 @@ def run_render_job(render_job_id: int) -> RenderJob:
         render_job.progress = 30
         render_job.save(update_fields=["progress"])
 
+        # Load source images through storage (local or remote)
+        product_img = _imread_field(product_view.image, cv2.IMREAD_COLOR)
+        design_img = _imread_field(design.image, cv2.IMREAD_UNCHANGED)
+
         # Run pipeline
-        result_image, timings = render_design_on_product(
-            product_image_path=product_view.image.path,
-            design_image_path=design.image.path,
+        result_image, timings = render_design_on_arrays(
+            product=product_img,
+            design=design_img,
             print_area=pa_dict,
             design_settings=job.design_settings or {},
             quality=quality,
@@ -184,30 +200,20 @@ def run_render_job(render_job_id: int) -> RenderJob:
         render_job.progress = 80
         render_job.save(update_fields=["progress"])
 
-        # Save output
+        # Save output through storage (uploads to Cloudinary in prod).
         output_filename = f"render_{render_job.id}_{int(time.time())}.png"
-        output_dir = os.path.join(settings.MEDIA_ROOT, "renders")
-        os.makedirs(output_dir, exist_ok=True)
-        output_path = os.path.join(output_dir, output_filename)
-
-        compression = 1 if quality == "final" else 6
-        cv2.imwrite(
-            output_path, result_image,
-            [cv2.IMWRITE_PNG_COMPRESSION, compression]
+        png_bytes = _encode_png(result_image, high_quality=(quality == "final"))
+        render_job.output_image.save(
+            output_filename, ContentFile(png_bytes), save=False
         )
 
-        # Generate thumbnail
-        if render_job.render_type in ("preview", "final"):
-            thumb_path = generate_thumbnail(output_path, max_size=400)
-
         # Update render job
-        render_job.output_image = f"renders/{output_filename}"
         render_job.status = "completed"
         render_job.progress = 100
         render_job.completed_at = timezone.now()
         render_job.render_metadata = {
             "timings": timings,
-            "output_size": os.path.getsize(output_path),
+            "output_size": len(png_bytes),
             "dimensions": [result_image.shape[1], result_image.shape[0]],
         }
         render_job.save()

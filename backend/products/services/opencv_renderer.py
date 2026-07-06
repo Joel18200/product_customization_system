@@ -670,20 +670,24 @@ class RenderPipeline:
         return result
 
 
-def render_design_on_product(
-    product_image_path: str,
-    design_image_path: str,
+def render_design_on_arrays(
+    product: np.ndarray,
+    design: np.ndarray,
     print_area: Dict[str, int],
     design_settings: Optional[Dict[str, Any]] = None,
     quality: str = "preview",
     surface: str = "flat",
 ) -> Tuple[np.ndarray, Dict[str, float]]:
     """
-    High-level function to render a design onto a product image.
+    Render a design onto a product using in-memory image arrays.
+
+    Storage-agnostic: callers load the images from whatever backend is in use
+    (local filesystem or a remote store like Cloudinary) and pass the decoded
+    arrays here.
 
     Args:
-        product_image_path: Path to the product photo
-        design_image_path: Path to the design artwork
+        product: Product photo as a BGR numpy array (cv2.IMREAD_COLOR)
+        design: Design artwork as a numpy array (cv2.IMREAD_UNCHANGED)
         print_area: Dict with x, y, width, height, rotation keys
         design_settings: User adjustments (scale, rotation, offsetX, offsetY)
         quality: "preview" or "final"
@@ -692,14 +696,10 @@ def render_design_on_product(
     Returns:
         Tuple of (rendered_image, timing_dict)
     """
-    # Load images
-    product = cv2.imread(product_image_path, cv2.IMREAD_COLOR)
-    design = cv2.imread(design_image_path, cv2.IMREAD_UNCHANGED)
-
     if product is None:
-        raise ValueError(f"Could not load product image: {product_image_path}")
+        raise ValueError("Could not decode product image")
     if design is None:
-        raise ValueError(f"Could not load design image: {design_image_path}")
+        raise ValueError("Could not decode design image")
 
     # Ensure design has alpha channel
     if len(design.shape) == 2:
@@ -711,3 +711,29 @@ def render_design_on_product(
     result = pipeline.render(product, design, print_area, design_settings)
 
     return result, pipeline.timings
+
+
+def render_design_on_product(
+    product_image_path: str,
+    design_image_path: str,
+    print_area: Dict[str, int],
+    design_settings: Optional[Dict[str, Any]] = None,
+    quality: str = "preview",
+    surface: str = "flat",
+) -> Tuple[np.ndarray, Dict[str, float]]:
+    """
+    High-level function to render a design onto a product image from file paths.
+    Kept for backward compatibility / local use; delegates to
+    ``render_design_on_arrays``.
+    """
+    product = cv2.imread(product_image_path, cv2.IMREAD_COLOR)
+    design = cv2.imread(design_image_path, cv2.IMREAD_UNCHANGED)
+
+    if product is None:
+        raise ValueError(f"Could not load product image: {product_image_path}")
+    if design is None:
+        raise ValueError(f"Could not load design image: {design_image_path}")
+
+    return render_design_on_arrays(
+        product, design, print_area, design_settings, quality, surface
+    )

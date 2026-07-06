@@ -80,6 +80,8 @@ INSTALLED_APPS = [
     "drf_spectacular",
     "django_celery_results",
     "django_celery_beat",
+    "cloudinary_storage",
+    "cloudinary",
 
     # Our Apps
     "accounts",
@@ -88,6 +90,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    # WhiteNoise serves collected static files (admin, DRF, Swagger) in
+    # production without needing a separate static host.
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -171,6 +176,30 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # Media files
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+
+# ──────────────────────────────────────────────
+# Storage backends
+# ──────────────────────────────────────────────
+# Static: WhiteNoise (compressed) serves collected static files in production.
+# Media: Cloudinary when CLOUDINARY_URL is set (production/hosting), so uploads
+# and generated renders persist and are served via CDN — Render's web-service
+# disk is ephemeral. Falls back to the local filesystem for development.
+CLOUDINARY_URL = env("CLOUDINARY_URL", "")
+
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
+
+if CLOUDINARY_URL:
+    STORAGES["default"] = {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    }
 
 
 # Default primary key field type
