@@ -80,7 +80,11 @@ docker-compose up --build
 
 ## Environment Variables
 
-See `backend/config/.env.example` for all backend variables.
+Backend configuration is read from environment variables (see the `env(...)`
+lookups in `backend/config/settings.py`) or an optional `backend/.env` file.
+Key variables: `DB_ENGINE`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`,
+`DB_PORT`, `DB_SSLMODE`, `SECRET_KEY`, `DEBUG`, `ALLOWED_HOSTS`, `REDIS_URL`.
+
 See `frontend/.env.local` for frontend variables.
 
 ## Running Tests
