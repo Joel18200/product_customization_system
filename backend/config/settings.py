@@ -293,7 +293,11 @@ CELERY_RESULT_SERIALIZER = "json"
 # ──────────────────────────────────────────────
 # Redis Cache
 # ──────────────────────────────────────────────
-REDIS_URL = env("REDIS_URL", "redis://localhost:6379/0")
+# Only use Redis when a REDIS_URL is *explicitly* provided. Otherwise fall back
+# to local-memory cache. This avoids 500s on hosts without Redis (e.g. a Render
+# web service), where DRF throttling would otherwise try to reach a nonexistent
+# Redis at localhost on every request.
+REDIS_URL = env("REDIS_URL", "")
 
 CACHES = {
     "default": {
@@ -301,8 +305,8 @@ CACHES = {
     }
 }
 
-# Use Redis cache if available
-if REDIS_URL and not DEBUG:
+# Use Redis cache only if an explicit URL is configured.
+if REDIS_URL:
     CACHES["default"] = {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
         "LOCATION": REDIS_URL,
