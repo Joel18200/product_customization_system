@@ -1,0 +1,24 @@
+# Python/Django
+__pycache__/
+*.pyc
+venv/
+env/
+.env
+db.sqlite3
+staticfiles/
+
+# Next.js
+node_modules/
+.next/
+.env.local
+
+# Media (generated renders + uploaded designs)
+media/
+fonts/
+
+# OS/editor junk
+.DS_Store
+.vscode/db.sqlite3.backup-before-postgres-switch
+# Backup files
+backend/db.sqlite3.backup-before-postgres-switch
+media_backup_before_postgres_switch/

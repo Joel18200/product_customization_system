@@ -1,0 +1,365 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────
+   Uber Move — self-hosted (local files only)
+   Shipped weights: Medium (500), Bold (700).
+   NOTE: Regular (400) and Light (300) were NOT provided, so we never
+   synthesize them. Weight requests below 600 resolve to the Medium face,
+   600+ to the Bold face (see the weight ranges below). Drop
+   UberMoveRegular.otf into /public/fonts to enable a true 400 body weight.
+   ────────────────────────────────────────────── */
+@font-face {
+  font-family: "Uber Move";
+  src: url("/fonts/UberMoveMedium.otf") format("opentype");
+  font-weight: 300 599; /* covers light/regular/medium → real Medium face */
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Uber Move";
+  src: url("/fonts/UberMoveBold.otf") format("opentype");
+  font-weight: 600 900; /* covers semibold/bold → real Bold face */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Uber-Inspired Design System · Light Theme ── */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f6f6;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f2f2f2;
+  --bg-glass: rgba(255, 255, 255, 0.92);
+  --border-subtle: #e2e2e2;
+  --border-accent: #000000;
+  --text-primary: #000000;
+  --text-secondary: #545454;
+  --text-muted: #8f8f8f;
+  --accent-primary: #000000;
+  --accent-secondary: #333333;
+  --accent-gradient: linear-gradient(135deg, #000000, #333333);
+  --success: #06c167;
+  --warning: #ff9500;
+  --error: #e1251b;
+  --shadow-glow: 0 4px 24px rgba(0, 0, 0, 0.08);
+
+  /* ── Typography system ──
+     One font stack, defined once and reused everywhere. */
+  --font-primary: "Uber Move", -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", "Segoe UI", Arial, system-ui, sans-serif;
+
+  /* Weights (only the two shipped faces exist). --fw-regular maps to the
+     Medium face because Regular (400) was not provided. */
+  --fw-regular: 500;
+  --fw-medium: 500;
+  --fw-semibold: 700;
+  --fw-bold: 700;
+
+  /* Type scale — deliberate, few steps (Uber-style restraint). */
+  --text-hero: clamp(2.75rem, 6vw, 4.5rem);
+  --text-h1: clamp(1.875rem, 3.5vw, 2.5rem);
+  --text-h2: 1.5rem;
+  --text-h3: 1.125rem;
+  --text-body: 1rem;
+  --text-label: 0.8125rem;
+  --text-button: 0.9375rem;
+
+  /* Line heights */
+  --lh-hero: 1.03;
+  --lh-heading: 1.15;
+  --lh-body: 1.55;
+
+  /* Letter spacing */
+  --ls-hero: -0.03em;
+  --ls-heading: -0.02em;
+  --ls-normal: 0;
+  --ls-label: 0.04em;
+}
+
+/* ── Base ── */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  /* Never fabricate missing weights/styles — only real faces render. */
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Typographic hierarchy ──
+   Applied to semantic elements so every page inherits the same system.
+   Utility classes (.text-hero etc.) are available for non-heading elements. */
+h1, h2, h3, h4 {
+  font-family: var(--font-primary);
+  margin: 0;
+}
+
+.text-hero,
+h1.hero {
+  font-size: var(--text-hero);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--ls-hero);
+}
+
+h1,
+.text-h1 {
+  font-size: var(--text-h1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+}
+
+h2,
+.text-h2 {
+  font-size: var(--text-h2);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+}
+
+h3,
+.text-h3 {
+  font-size: var(--text-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-normal);
+}
+
+p,
+.text-body {
+  font-size: var(--text-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+}
+
+.text-label {
+  font-size: var(--text-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-label);
+}
+
+label {
+  font-weight: var(--fw-medium);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* ── Glass Effect ── */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-hover:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+}
+
+/* ── Gradient Text (Uber: bold black) ── */
+.gradient-text {
+  color: #000000;
+  font-weight: var(--fw-bold);
+}
+
+/* ── Buttons (Uber-style) ── */
+.btn-primary {
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font-primary);
+  font-size: var(--text-button);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-normal);
+  padding: 0.625rem 1.5rem;
+  border-radius: 500px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover::before {
+  opacity: 1;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  background: #333333;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-size: var(--text-button);
+  font-weight: var(--fw-medium);
+  padding: 0.625rem 1.5rem;
+  border-radius: 500px;
+  border: 1px solid #e2e2e2;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover {
+  background: #f6f6f6;
+  border-color: #000000;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-primary);
+  font-weight: var(--fw-medium);
+  padding: 0.5rem 1rem;
+  border-radius: 500px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-ghost:hover {
+  color: var(--text-primary);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* ── Cards (Uber-style: clean, white, subtle shadow) ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+.card:hover {
+  border-color: #cccccc;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ── Input ── */
+.input {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 500px;
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  width: 100%;
+  outline: none;
+  transition: all 0.2s ease;
+}
+.input:focus {
+  border-color: #000000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-label);
+}
+.badge-success {
+  background: rgba(6, 193, 103, 0.1);
+  color: #06c167;
+}
+.badge-warning {
+  background: rgba(255, 149, 0, 0.1);
+  color: #c47600;
+}
+.badge-error {
+  background: rgba(225, 37, 27, 0.1);
+  color: #e1251b;
+}
+.badge-info {
+  background: rgba(0, 0, 0, 0.06);
+  color: #000000;
+}
+
+/* ── Animations ── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e6e6e6 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 0.5rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 0, 0, 0.03); }
+  50% { box-shadow: 0 0 40px rgba(0, 0, 0, 0.06); }
+}
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ── Studio Layout ── */
+.studio-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr 300px;
+  grid-template-rows: 1fr auto;
+  gap: 0;
+  height: calc(100vh - 64px);
+}
+@media (max-width: 1024px) {
+  .studio-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    height: auto;
+  }
+}

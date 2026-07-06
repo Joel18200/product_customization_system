@@ -1,0 +1,1204 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$jdLK6BYfO78QmVSCmnBiVo$iHNF3i3Zq/+7h1v8yBLwaUtakZ08UxmzGLKAUxXfvQ4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jo",
+    "first_name": "Joel",
+    "last_name": "Samuel",
+    "email": "joel@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-06-30T07:54:37.732Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$lMixjGQoUgoAHUZf52gZZ4$JzyX6Dt3MoorsFkUPMR49Gr//4TF8ZkITCh0aNIT1BE=",
+    "last_login": "2026-07-01T17:13:48.694Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@customforge.io",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-06-30T08:02:37.007Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$l02SOo0iWNMTZV8JjVJaVu$VdJcxjwwZEe0joCxY5cOZvp7AyVRuF0CpPLmrdeIv+4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "admin123",
+    "first_name": "admin",
+    "last_name": "admin",
+    "email": "admin@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-01T17:11:39.546Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$UyfkIdjZZsVbPfIY686FfF$kmcuaJdDmYWBKHcO4p1xHrgrlrTr7TCBWuiOwiND9JE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "joel123",
+    "first_name": "joel",
+    "last_name": "samuel",
+    "email": "joel123@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-03T14:16:35.521Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$nUfaklHrd7jm7juX7wKWfy$RHAAgHoDbGKtvOrv9jfv8wrxRNJZG6mlyihhXsoxNeM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "diaguser_1559450783",
+    "first_name": "",
+    "last_name": "",
+    "email": "diaguser_1559450783@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-04T04:18:02.048Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$F2TDjk3ImqXa3xTUP0w056$bQ5eljOL7+ZPupeshqw+Id6BFdRnKbGg3kXjbGkT1Pg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "diaguser_7610",
+    "first_name": "",
+    "last_name": "",
+    "email": "diaguser_7610@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-04T04:25:42.610Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$a23Abcl7sCUiRwJCFE4iQU$kgqft6gCW2ZSccyilsAL/piMCHL4Vy3KMp4lW5ucRX4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "admin1234",
+    "first_name": "admin",
+    "last_name": "admin",
+    "email": "admin123@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-07-04T05:30:54.089Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "products.category",
+  "pk": 3,
+  "fields": {
+    "name": "T-Shirts",
+    "slug": "t-shirts",
+    "description": "",
+    "parent": null,
+    "image": "",
+    "ordering": 1,
+    "is_active": true,
+    "created_at": "2026-06-30T07:43:19.282Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 4,
+  "fields": {
+    "name": "Hoodies",
+    "slug": "hoodies",
+    "description": "",
+    "parent": null,
+    "image": "",
+    "ordering": 2,
+    "is_active": true,
+    "created_at": "2026-06-30T07:43:19.289Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 6,
+  "fields": {
+    "name": "Caps & Hats",
+    "slug": "caps-hats",
+    "description": "",
+    "parent": null,
+    "image": "",
+    "ordering": 0,
+    "is_active": true,
+    "created_at": "2026-07-02T06:38:22.847Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "name": "Gildan Heavy Blend Hooded Sweatshirt (18500)",
+    "slug": "18500",
+    "description": "Gildan Heavy Blend Hooded Sweatshirt (18500)",
+    "category": 4,
+    "sku": "18500",
+    "base_price": null,
+    "tags": [],
+    "thumbnail": "",
+    "is_active": true,
+    "created_at": "2026-07-02T06:38:22.856Z",
+    "updated_at": "2026-07-02T06:38:22.856Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "name": "OTTO CAP 6 Panel Low Profile Baseball Cap (19-061)",
+    "slug": "19-061",
+    "description": "OTTO CAP 6 Panel Low Profile Baseball Cap (19-061)",
+    "category": 6,
+    "sku": "19-061",
+    "base_price": null,
+    "tags": [],
+    "thumbnail": "",
+    "is_active": true,
+    "created_at": "2026-07-02T06:38:25.178Z",
+    "updated_at": "2026-07-02T06:38:25.178Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "name": "Gildan Ultra Cotton 100% Cotton T-Shirt (2000)",
+    "slug": "2000",
+    "description": "Gildan Ultra Cotton 100% Cotton T-Shirt (2000)",
+    "category": 3,
+    "sku": "2000",
+    "base_price": null,
+    "tags": [],
+    "thumbnail": "",
+    "is_active": true,
+    "created_at": "2026-07-02T06:38:30.543Z",
+    "updated_at": "2026-07-02T06:38:30.543Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "name": "OTTO CAP 5 Panel Mid Profile Baseball Cap (31-069)",
+    "slug": "31-069",
+    "description": "OTTO CAP 5 Panel Mid Profile Baseball Cap (31-069)",
+    "category": 6,
+    "sku": "31-069",
+    "base_price": null,
+    "tags": [],
+    "thumbnail": "",
+    "is_active": true,
+    "created_at": "2026-07-02T06:38:35.302Z",
+    "updated_at": "2026-07-02T06:38:35.302Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "name": "Polyester Foam Front High Crown Golf Style Mesh Back Cap (39-165)",
+    "slug": "39-165",
+    "description": "Polyester Foam Front High Crown Golf Style Mesh Back Cap (39-165)",
+    "category": 6,
+    "sku": "39-165",
+    "base_price": null,
+    "tags": [],
+    "thumbnail": "",
+    "is_active": true,
+    "created_at": "2026-07-02T06:38:42.686Z",
+    "updated_at": "2026-07-02T06:38:42.686Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 11,
+  "fields": {
+    "name": "Gildan Heavy Cotton 100% Cotton T-Shirt (5000)",
+    "slug": "5000",
+    "description": "Gildan Heavy Cotton 100% Cotton T-Shirt (5000)",
+    "category": 3,
+    "sku": "5000",
+    "base_price": null,
+    "tags": [],
+    "thumbnail": "",
+    "is_active": true,
+    "created_at": "2026-07-02T06:38:45.015Z",
+    "updated_at": "2026-07-02T06:38:45.015Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 12,
+  "fields": {
+    "name": "OTTO CAP Sun Visor (60-662)",
+    "slug": "60-662",
+    "description": "OTTO CAP Sun Visor (60-662)",
+    "category": 6,
+    "sku": "60-662",
+    "base_price": null,
+    "tags": [],
+    "thumbnail": "",
+    "is_active": true,
+    "created_at": "2026-07-02T06:38:48.133Z",
+    "updated_at": "2026-07-02T06:38:48.133Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "name": "Superior Cotton Knit Beanie 12\" (82-480)",
+    "slug": "82-480",
+    "description": "Superior Cotton Knit Beanie 12\" (82-480)",
+    "category": 6,
+    "sku": "82-480",
+    "base_price": null,
+    "tags": [],
+    "thumbnail": "",
+    "is_active": true,
+    "created_at": "2026-07-02T06:38:52.436Z",
+    "updated_at": "2026-07-02T06:38:52.436Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 14,
+  "fields": {
+    "name": "Sport-Tek Youth PosiCharge Competitor Tee (YST350)",
+    "slug": "yst350",
+    "description": "Sport-Tek Youth PosiCharge Competitor Tee (YST350)",
+    "category": 3,
+    "sku": "YST350",
+    "base_price": null,
+    "tags": [],
+    "thumbnail": "",
+    "is_active": true,
+    "created_at": "2026-07-02T06:38:54.538Z",
+    "updated_at": "2026-07-02T06:38:54.538Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 13,
+  "fields": {
+    "product": 6,
+    "view_name": "Flat - Full Front (A4)",
+    "view_type": "front",
+    "image": "product_views/18500_A4_front_18500_black_conf_front.jpg",
+    "rotation_metadata": {},
+    "ordering": 0,
+    "created_at": "2026-07-02T06:38:24.038Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 14,
+  "fields": {
+    "product": 6,
+    "view_name": "Flat - Full Back (A6)",
+    "view_type": "back",
+    "image": "product_views/18500_A6_back_18500_black_conf_back.jpg",
+    "rotation_metadata": {},
+    "ordering": 1,
+    "created_at": "2026-07-02T06:38:25.176Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 15,
+  "fields": {
+    "product": 7,
+    "view_name": "Cap - Front Center (1)",
+    "view_type": "front",
+    "image": "product_views/19-061_1_front_19-061_032_conf_front.jpg",
+    "rotation_metadata": {},
+    "ordering": 0,
+    "created_at": "2026-07-02T06:38:26.072Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 16,
+  "fields": {
+    "product": 7,
+    "view_name": "Cap - Upper Back Center (8)",
+    "view_type": "back",
+    "image": "product_views/19-061_8_back_19-061_003_conf_back.jpg",
+    "rotation_metadata": {},
+    "ordering": 1,
+    "created_at": "2026-07-02T06:38:27.177Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 17,
+  "fields": {
+    "product": 7,
+    "view_name": "Cap - Left Side (18)",
+    "view_type": "left",
+    "image": "product_views/19-061_18_side_left_05e9f4.jpg",
+    "rotation_metadata": {},
+    "ordering": 2,
+    "created_at": "2026-07-02T06:38:28.865Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 18,
+  "fields": {
+    "product": 7,
+    "view_name": "Cap - Right Side (19)",
+    "view_type": "right",
+    "image": "product_views/19-061_19_side_right_fa96a6.jpg",
+    "rotation_metadata": {},
+    "ordering": 3,
+    "created_at": "2026-07-02T06:38:30.541Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 19,
+  "fields": {
+    "product": 8,
+    "view_name": "Flat - Full Front (A4)",
+    "view_type": "front",
+    "image": "product_views/2000_A4_front_703604_conf_7740e_front.jpg",
+    "rotation_metadata": {},
+    "ordering": 0,
+    "created_at": "2026-07-02T06:38:32.120Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 20,
+  "fields": {
+    "product": 8,
+    "view_name": "Flat - Full Back (A6)",
+    "view_type": "back",
+    "image": "product_views/2000_A6_back_703555-back.jpg",
+    "rotation_metadata": {},
+    "ordering": 1,
+    "created_at": "2026-07-02T06:38:35.297Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 21,
+  "fields": {
+    "product": 9,
+    "view_name": "Cap - Front Center (1)",
+    "view_type": "front",
+    "image": "product_views/31-069_1_front_e19ffe.jpg",
+    "rotation_metadata": {},
+    "ordering": 0,
+    "created_at": "2026-07-02T06:38:37.238Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 22,
+  "fields": {
+    "product": 9,
+    "view_name": "Cap - Upper Back Center (8)",
+    "view_type": "back",
+    "image": "product_views/31-069_8_back_3b8ab8.jpg",
+    "rotation_metadata": {},
+    "ordering": 1,
+    "created_at": "2026-07-02T06:38:39.139Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 23,
+  "fields": {
+    "product": 9,
+    "view_name": "Cap - Left Side (18)",
+    "view_type": "left",
+    "image": "product_views/31-069_18_side_left_27f3ec.jpg",
+    "rotation_metadata": {},
+    "ordering": 2,
+    "created_at": "2026-07-02T06:38:40.948Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 24,
+  "fields": {
+    "product": 9,
+    "view_name": "Cap - Right Side (19)",
+    "view_type": "right",
+    "image": "product_views/31-069_19_side_right_31-069-009-RS.jpg",
+    "rotation_metadata": {},
+    "ordering": 3,
+    "created_at": "2026-07-02T06:38:42.685Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 25,
+  "fields": {
+    "product": 10,
+    "view_name": "Cap - Front Center (1)",
+    "view_type": "front",
+    "image": "product_views/39-165_1_front_ee1aa5.jpg",
+    "rotation_metadata": {},
+    "ordering": 0,
+    "created_at": "2026-07-02T06:38:45.014Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 26,
+  "fields": {
+    "product": 11,
+    "view_name": "Flat - Full Front (A4)",
+    "view_type": "front",
+    "image": "product_views/5000_A4_front_260182_conf_98bc7_front.jpg",
+    "rotation_metadata": {},
+    "ordering": 0,
+    "created_at": "2026-07-02T06:38:46.691Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 27,
+  "fields": {
+    "product": 11,
+    "view_name": "Flat - Full Back (A6)",
+    "view_type": "back",
+    "image": "product_views/5000_A6_back_5000_orange_conf_back.jpg",
+    "rotation_metadata": {},
+    "ordering": 1,
+    "created_at": "2026-07-02T06:38:48.132Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 28,
+  "fields": {
+    "product": 12,
+    "view_name": "Cap - Front Center (1)",
+    "view_type": "front",
+    "image": "product_views/60-662_1_front_60-662_003_conf_front.jpg",
+    "rotation_metadata": {},
+    "ordering": 0,
+    "created_at": "2026-07-02T06:38:49.182Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 29,
+  "fields": {
+    "product": 12,
+    "view_name": "Cap - Left Side (18)",
+    "view_type": "left",
+    "image": "product_views/60-662_18_side_left_7211a8.jpg",
+    "rotation_metadata": {},
+    "ordering": 1,
+    "created_at": "2026-07-02T06:38:50.853Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 30,
+  "fields": {
+    "product": 12,
+    "view_name": "Cap - Right Side (19)",
+    "view_type": "right",
+    "image": "product_views/60-662_19_side_right_bc33ca.jpg",
+    "rotation_metadata": {},
+    "ordering": 2,
+    "created_at": "2026-07-02T06:38:52.435Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 31,
+  "fields": {
+    "product": 13,
+    "view_name": "Cap - Front Center (1)",
+    "view_type": "front",
+    "image": "product_views/82-480_1_front_82-480_002_conf_front.jpg",
+    "rotation_metadata": {},
+    "ordering": 0,
+    "created_at": "2026-07-02T06:38:53.469Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 32,
+  "fields": {
+    "product": 13,
+    "view_name": "Cap - Upper Back Center (8)",
+    "view_type": "back",
+    "image": "product_views/82-480_8_back_82-480_002_conf_back.jpg",
+    "rotation_metadata": {},
+    "ordering": 1,
+    "created_at": "2026-07-02T06:38:54.537Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 33,
+  "fields": {
+    "product": 14,
+    "view_name": "Flat - Full Front (A4)",
+    "view_type": "front",
+    "image": "product_views/YST350_A4_front_yst350_purple_conf_front.jpg",
+    "rotation_metadata": {},
+    "ordering": 0,
+    "created_at": "2026-07-02T06:38:55.652Z"
+  }
+},
+{
+  "model": "products.productview",
+  "pk": 34,
+  "fields": {
+    "product": 14,
+    "view_name": "Flat - Full Back (A6)",
+    "view_type": "back",
+    "image": "product_views/YST350_A6_back_yst350_deeporange_conf_back.jpg",
+    "rotation_metadata": {},
+    "ordering": 1,
+    "created_at": "2026-07-02T06:38:56.721Z"
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 12,
+  "fields": {
+    "product_view": 13,
+    "label": "Flat - Full Front (A4) (A4)",
+    "x": 360,
+    "y": 293,
+    "width": 480,
+    "height": 451,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 13,
+  "fields": {
+    "product_view": 14,
+    "label": "Flat - Full Back (A6) (A6)",
+    "x": 360,
+    "y": 262,
+    "width": 480,
+    "height": 548,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 14,
+  "fields": {
+    "product_view": 15,
+    "label": "Cap - Front Center (1) (1)",
+    "x": 158,
+    "y": 87,
+    "width": 240,
+    "height": 143,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 15,
+  "fields": {
+    "product_view": 16,
+    "label": "Cap - Upper Back Center (8) (8)",
+    "x": 150,
+    "y": 115,
+    "width": 257,
+    "height": 46,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 16,
+  "fields": {
+    "product_view": 17,
+    "label": "Cap - Left Side (18) (18)",
+    "x": 1317,
+    "y": 1063,
+    "width": 532,
+    "height": 441,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 17,
+  "fields": {
+    "product_view": 18,
+    "label": "Cap - Right Side (19) (19)",
+    "x": 582,
+    "y": 1073,
+    "width": 557,
+    "height": 427,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 18,
+  "fields": {
+    "product_view": 19,
+    "label": "Flat - Full Front (A4) (A4)",
+    "x": 630,
+    "y": 515,
+    "width": 770,
+    "height": 793,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 19,
+  "fields": {
+    "product_view": 20,
+    "label": "Flat - Full Back (A6) (A6)",
+    "x": 580,
+    "y": 900,
+    "width": 799,
+    "height": 1210,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 20,
+  "fields": {
+    "product_view": 21,
+    "label": "Cap - Front Center (1) (1)",
+    "x": 460,
+    "y": 544,
+    "width": 1563,
+    "height": 790,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 21,
+  "fields": {
+    "product_view": 22,
+    "label": "Cap - Upper Back Center (8) (8)",
+    "x": 600,
+    "y": 850,
+    "width": 1253,
+    "height": 230,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 22,
+  "fields": {
+    "product_view": 23,
+    "label": "Cap - Left Side (18) (18)",
+    "x": 1275,
+    "y": 1037,
+    "width": 484,
+    "height": 423,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 23,
+  "fields": {
+    "product_view": 24,
+    "label": "Cap - Right Side (19) (19)",
+    "x": 703,
+    "y": 1020,
+    "width": 500,
+    "height": 455,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 24,
+  "fields": {
+    "product_view": 25,
+    "label": "Cap - Front Center (1) (1)",
+    "x": 575,
+    "y": 623,
+    "width": 1330,
+    "height": 726,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 25,
+  "fields": {
+    "product_view": 26,
+    "label": "Flat - Full Front (A4) (A4)",
+    "x": 600,
+    "y": 494,
+    "width": 800,
+    "height": 760,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 26,
+  "fields": {
+    "product_view": 27,
+    "label": "Flat - Full Back (A6) (A6)",
+    "x": 360,
+    "y": 271,
+    "width": 480,
+    "height": 568,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 27,
+  "fields": {
+    "product_view": 28,
+    "label": "Cap - Front Center (1) (1)",
+    "x": 154,
+    "y": 48,
+    "width": 250,
+    "height": 150,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 28,
+  "fields": {
+    "product_view": 29,
+    "label": "Cap - Left Side (18) (18)",
+    "x": 1240,
+    "y": 1083,
+    "width": 619,
+    "height": 201,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 29,
+  "fields": {
+    "product_view": 30,
+    "label": "Cap - Right Side (19) (19)",
+    "x": 577,
+    "y": 853,
+    "width": 580,
+    "height": 210,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 30,
+  "fields": {
+    "product_view": 31,
+    "label": "Cap - Front Center (1) (1)",
+    "x": 165,
+    "y": 242,
+    "width": 220,
+    "height": 140,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 31,
+  "fields": {
+    "product_view": 32,
+    "label": "Cap - Upper Back Center (8) (8)",
+    "x": 165,
+    "y": 250,
+    "width": 220,
+    "height": 135,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 32,
+  "fields": {
+    "product_view": 33,
+    "label": "Flat - Full Front (A4) (A4)",
+    "x": 360,
+    "y": 267,
+    "width": 480,
+    "height": 412,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.printarea",
+  "pk": 33,
+  "fields": {
+    "product_view": 34,
+    "label": "Flat - Full Back (A6) (A6)",
+    "x": 380,
+    "y": 238,
+    "width": 430,
+    "height": 499,
+    "rotation": 0.0,
+    "max_dpi": 300,
+    "is_default": true
+  }
+},
+{
+  "model": "products.designupload",
+  "pk": 70,
+  "fields": {
+    "user": [
+      "joel123"
+    ],
+    "image": "design_uploads/church-logo_QcgaK7J.png.png",
+    "original_filename": "church-logo.png.png",
+    "file_size": 347492,
+    "width": 666,
+    "height": 680,
+    "mime_type": "image/png",
+    "thumbnail": "",
+    "uploaded_at": "2026-07-04T04:44:30.914Z",
+    "status": "completed"
+  }
+},
+{
+  "model": "products.designupload",
+  "pk": 71,
+  "fields": {
+    "user": [
+      "joel123"
+    ],
+    "image": "design_uploads/church-logo_1NCHPhN.png.png",
+    "original_filename": "church-logo.png.png",
+    "file_size": 347492,
+    "width": 666,
+    "height": 680,
+    "mime_type": "image/png",
+    "thumbnail": "",
+    "uploaded_at": "2026-07-04T04:46:31.458Z",
+    "status": "completed"
+  }
+},
+{
+  "model": "products.designupload",
+  "pk": 72,
+  "fields": {
+    "user": [
+      "admin1234"
+    ],
+    "image": "design_uploads/church-logo_PuLDC1P.png.png",
+    "original_filename": "church-logo.png.png",
+    "file_size": 347492,
+    "width": 666,
+    "height": 680,
+    "mime_type": "image/png",
+    "thumbnail": "",
+    "uploaded_at": "2026-07-04T05:31:52.045Z",
+    "status": "completed"
+  }
+},
+{
+  "model": "products.designupload",
+  "pk": 73,
+  "fields": {
+    "user": [
+      "admin1234"
+    ],
+    "image": "design_uploads/church-logo_Ns9jZE6.png.png",
+    "original_filename": "church-logo.png.png",
+    "file_size": 347492,
+    "width": 666,
+    "height": 680,
+    "mime_type": "image/png",
+    "thumbnail": "",
+    "uploaded_at": "2026-07-04T05:32:48.646Z",
+    "status": "completed"
+  }
+},
+{
+  "model": "products.customizationjob",
+  "pk": 162,
+  "fields": {
+    "user": [
+      "joel123"
+    ],
+    "design": 70,
+    "product_view": 13,
+    "design_settings": {
+      "scale": 0.8,
+      "rotation": 0,
+      "offsetX": -2,
+      "offsetY": -26
+    },
+    "output_image": "generated_previews/preview_162_1783140284.png",
+    "status": "completed",
+    "share_token": "b5abfa9f-7055-408a-bc8d-267122a4a457",
+    "is_public": false,
+    "created_at": "2026-07-04T04:44:39.933Z",
+    "updated_at": "2026-07-04T04:44:39.933Z"
+  }
+},
+{
+  "model": "products.customizationjob",
+  "pk": 163,
+  "fields": {
+    "user": [
+      "joel123"
+    ],
+    "design": 70,
+    "product_view": 14,
+    "design_settings": {
+      "scale": 0.8,
+      "rotation": 0,
+      "offsetX": -2,
+      "offsetY": -26
+    },
+    "output_image": "generated_previews/preview_163_1783140284.png",
+    "status": "completed",
+    "share_token": "53ffba98-ba30-466e-b78f-bffcec97df05",
+    "is_public": false,
+    "created_at": "2026-07-04T04:44:39.934Z",
+    "updated_at": "2026-07-04T04:44:39.934Z"
+  }
+},
+{
+  "model": "products.customizationjob",
+  "pk": 164,
+  "fields": {
+    "user": [
+      "joel123"
+    ],
+    "design": 71,
+    "product_view": 25,
+    "design_settings": {
+      "scale": 0.9,
+      "rotation": 0,
+      "offsetX": 0,
+      "offsetY": 0
+    },
+    "output_image": "generated_previews/preview_164_1783140401.png",
+    "status": "completed",
+    "share_token": "51f7cbad-8331-4139-a030-bdf965c07b56",
+    "is_public": false,
+    "created_at": "2026-07-04T04:46:37.187Z",
+    "updated_at": "2026-07-04T04:46:37.187Z"
+  }
+},
+{
+  "model": "products.customizationjob",
+  "pk": 165,
+  "fields": {
+    "user": [
+      "admin1234"
+    ],
+    "design": 72,
+    "product_view": 14,
+    "design_settings": {
+      "scale": 0.64,
+      "rotation": 0,
+      "offsetX": 0,
+      "offsetY": -47
+    },
+    "output_image": "generated_previews/preview_165_1783143134.png",
+    "status": "completed",
+    "share_token": "fcdcb0e8-1aba-4156-ab31-f81f95a65408",
+    "is_public": false,
+    "created_at": "2026-07-04T05:32:10.218Z",
+    "updated_at": "2026-07-04T05:32:10.218Z"
+  }
+},
+{
+  "model": "products.customizationjob",
+  "pk": 166,
+  "fields": {
+    "user": [
+      "admin1234"
+    ],
+    "design": 72,
+    "product_view": 13,
+    "design_settings": {
+      "scale": 0.64,
+      "rotation": 0,
+      "offsetX": 0,
+      "offsetY": -47
+    },
+    "output_image": "renders/render_25_1783143150.png",
+    "status": "completed",
+    "share_token": "3ab3cb99-fe3f-4e1e-803b-0cc1e5b6c338",
+    "is_public": false,
+    "created_at": "2026-07-04T05:32:10.219Z",
+    "updated_at": "2026-07-04T05:32:10.219Z"
+  }
+},
+{
+  "model": "products.customizationjob",
+  "pk": 167,
+  "fields": {
+    "user": [
+      "admin1234"
+    ],
+    "design": 73,
+    "product_view": 25,
+    "design_settings": {
+      "scale": 1,
+      "rotation": 0,
+      "offsetX": -13,
+      "offsetY": 0
+    },
+    "output_image": "renders/render_26_1783143195.png",
+    "status": "completed",
+    "share_token": "e95aa290-c3bc-4bbe-8762-36876b792864",
+    "is_public": false,
+    "created_at": "2026-07-04T05:32:58.965Z",
+    "updated_at": "2026-07-04T05:32:58.965Z"
+  }
+},
+{
+  "model": "products.renderjob",
+  "pk": 25,
+  "fields": {
+    "customization": 166,
+    "render_type": "final",
+    "quality": 85,
+    "status": "completed",
+    "progress": 100,
+    "output_image": "renders/render_25_1783143150.png",
+    "render_metadata": {
+      "timings": {
+        "preparation": 0.0,
+        "placement": 0.004015922546386719,
+        "perspective": 0.011985301971435547,
+        "conformation": 0.00600123405456543,
+        "blending": 0.009991168975830078,
+        "total": 0.03199362754821777
+      },
+      "output_size": 618191,
+      "dimensions": [
+        1200,
+        1128
+      ]
+    },
+    "error_message": "",
+    "queued_at": "2026-07-04T05:32:26.224Z",
+    "started_at": "2026-07-04T05:32:30.313Z",
+    "completed_at": "2026-07-04T05:32:30.567Z"
+  }
+},
+{
+  "model": "products.renderjob",
+  "pk": 26,
+  "fields": {
+    "customization": 167,
+    "render_type": "final",
+    "quality": 85,
+    "status": "completed",
+    "progress": 100,
+    "output_image": "renders/render_26_1783143195.png",
+    "render_metadata": {
+      "timings": {
+        "preparation": 0.0,
+        "placement": 0.0030050277709960938,
+        "perspective": 0.0069963932037353516,
+        "conformation": 0.0430145263671875,
+        "blending": 0.09194588661193848,
+        "total": 0.14496183395385742
+      },
+      "output_size": 6014583,
+      "dimensions": [
+        2400,
+        2400
+      ]
+    },
+    "error_message": "",
+    "queued_at": "2026-07-04T05:33:10.695Z",
+    "started_at": "2026-07-04T05:33:14.792Z",
+    "completed_at": "2026-07-04T05:33:15.568Z"
+  }
+}
+]
