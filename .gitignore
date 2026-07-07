@@ -4,16 +4,21 @@ __pycache__/
 venv/
 env/
 .env
-db.sqlite3
 staticfiles/
+# NOTE: backend/db.sqlite3 is intentionally TRACKED so a fresh clone has the
+# seeded products/print-areas for review. Production uses PostgreSQL (env),
+# so this file is never read there.
 
 # Next.js
 node_modules/
 .next/
 .env.local
 
-# Media (generated renders + uploaded designs)
-media/
+# Media — ignore runtime output only. Product base images (product_views) are
+# TRACKED so the catalog renders on a fresh clone.
+backend/media/design_uploads/
+backend/media/generated_previews/
+backend/media/renders/
 
 # Stray root-level fonts duplicate (frontend fonts live in frontend/public/fonts)
 /fonts/
