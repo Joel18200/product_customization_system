@@ -14,7 +14,9 @@ node_modules/
 
 # Media (generated renders + uploaded designs)
 media/
-fonts/
+
+# Stray root-level fonts duplicate (frontend fonts live in frontend/public/fonts)
+/fonts/
 
 # OS/editor junk
 .DS_Store
